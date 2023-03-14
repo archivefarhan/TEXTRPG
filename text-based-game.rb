@@ -1,5 +1,3 @@
-# enemy = [{ name: "Spider", health: 0, dmg: 0, loot: ["Uncut Ruby", "Egg Sac", "Bones", "Spider Eye", "Spiders Cudgel"] }, { name: "Goblin", health: 0, dmg: 0, loot: ["Goblin Mask", "Raider Axe", "Cower Shield", "Bones", "Nothing"] }, { name: "Skeleton", health: 0, dmg: 0, loot: ["Bones", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"] }, { name: "Giant", health: 0, dmg: 0, loot: ["Giant Club", "Big Bones", "Nothing", "Beer", "Spear"] }, { name: "Dragon", health: 0, dmg: 0, loot: ["Dragon Sword", "Dragon Shield", "Dragon Bones", "Master Cape", "Dragon Armour"] }]
-
 system "clear"
 
 # Core System
