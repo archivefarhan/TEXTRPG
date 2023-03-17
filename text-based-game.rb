@@ -6,7 +6,7 @@ power = stats[:strength] * stats[:faith]
 rng = rand(0..4)
 
 # Locations & Enemies
-locations = ["graveyard"]
+locations = ["graveyard", "ending"]
 
 graveyard = [{ name: "Mini Skeleton", health: 5, dmg: rand(0..1), loot: ["Coins", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"], guaranteed: "Bones" }, { name: "Skeleton", health: 7, dmg: rand(0..2), loot: ["Coins", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"], guaranteed: "Bones" }, { name: "Skeleton", health: 7, dmg: rand(0..2), loot: ["Coins", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"], guaranteed: "Bones" }, { name: "Skeleton Brute", health: 10, dmg: rand(1..2), loot: ["Coins", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"], guaranteed: "Bones" }, { name: "Skeleton Brute", health: 10, dmg: rand(1..2), loot: ["Coins", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"], guaranteed: "Bones" }, { name: "Skeletal Mage", health: 20, dmg: rand(1..4), loot: ["Coins", "Bone Sword", "Bone Necklace", "Bone Dust", "Nothing"], guaranteed: "tincture" }]
 
@@ -45,6 +45,10 @@ while true
   end
   i = 0
   while i < locations.length
+    if locations[i] == "ending"
+      puts "You Win!"
+      break
+    end
     current_location = locations[i]
     if locations[i] == "graveyard"
       puts ""
@@ -92,6 +96,7 @@ while true
             current_player_health -= current_enemy[:dmg]
             puts "you've been hit! your health is now #{current_player_health}"
           elsif action.downcase == "p" || action.downcase == "pray"
+            puts "you've used all #{bones_quantity} of your bones!"
             k = 1
             while k < backpack.length
               if backpack[k] == "Bones"
@@ -101,7 +106,6 @@ while true
               k += 1
             end
             if backpack.any?("Bones") == false
-              puts "you've used all #{bones_quantity} of your bones!"
               puts "You leveled up your faith to #{stats[:faith]}"
             end
           elsif action.downcase == "f" || action.downcase == "flee"
